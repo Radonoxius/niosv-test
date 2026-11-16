@@ -2,7 +2,7 @@
 A test design with Nios V/m soft-cores on Terasic DE10-Standard.
 
 # Board Info
-Terasic DE10-Standard board running Linux 6.18
+Terasic DE10-Standard board running Linux Kernel 6.18
 
 # FPGA Usage
 The FPGA is flashed at boot-time before booting into Linux automatically.
