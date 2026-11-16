@@ -25,9 +25,9 @@ To work with the FPGA side, youll need to install Quartus Lite 25.1 (keep the de
 
 **NOTE:** Nios-V debug doesnt work if you havent installed Quartus!
 
-# Sysroot Usage
+# Installing Sysroot
 The sysroot for the board has been provided in this repo to make things easier
-for development. It was extracted from the Yocto Linux build (full-cli image).
+for development. It was extracted from the Yocto Linux build (nodistro, full-cli image).
 
-Just extract `cortexa9t2hf-neon-sysroot.tar.xz` in your /opt folder. Youre good to
+Just extract `cortexa9t2hf-neon-sysroot.tar.xz` in /opt. Youre good to
 go after that!
