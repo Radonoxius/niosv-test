@@ -1,0 +1,23 @@
+[package]
+name = "shaxl-assignment"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+resolver = "3"
+members = ["niosv-firmware"]
+
+[profile.dev]
+opt-level = "s"
+debug = "full"
+strip = "none"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "unwind"
+strip = true
+
+[dependencies]
+libc = "0.2.191"

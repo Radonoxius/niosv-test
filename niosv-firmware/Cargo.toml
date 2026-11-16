@@ -1,0 +1,20 @@
+[package]
+name = "niosv-firmware"
+version = "0.1.0"
+edition = "2024"
+build = "build.rs"
+
+[[bin]]
+name = "niosv-firmware"
+path = "src/main.rs"
+test = false
+bench = false
+
+[lib]
+test = false
+bench = false
+doctest = false
+
+[dependencies]
+riscv = { version = "0.16.1", features = ["rt-v-trap"] }
+riscv-rt = { version = "0.18.0", features = ["v-trap", "custom-interrupts", "custom-exceptions"] }
