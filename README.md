@@ -12,7 +12,7 @@ Rename the generated file **strictly** as `fpga.rbf` and copy it to the boot par
 
 If the RBF file doesnt exist or has a different name, the FPGA will **not** be flashed.
 
-## Loading Nios V Firmware into ROM
+## Flashing Nios-V Firmware
 Core 0 starts running from ROM, so initialize its boot ROM with the firmware:
 
 ```bash
