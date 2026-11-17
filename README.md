@@ -12,6 +12,19 @@ Rename the generated file **strictly** as `fpga.rbf` and copy it to the boot par
 
 If the RBF file doesnt exist or has a different name, the FPGA will **not** be flashed.
 
+## Loading Nios V Firmware into ROM
+The Nios V firmware runs from the `nios_rom` on-chip memory at address `0x00000000`. Build the firmware for the bare-metal RISC-V target and convert it to the 512-bit Intel HEX format expected by that ROM:
+
+```bash
+rustup target add riscv32i-unknown-none-elf
+cargo build -p niosv-firmware --target riscv32i-unknown-none-elf
+./firmware2hex.sh
+```
+
+`firmware2hex.sh` converts the debug firmware binary at `target/riscv32i-unknown-none-elf/debug/niosv-firmware` into `firmware.hex` in the project root. In Quartus Platform Designer, open the `nios_rom` on-chip memory settings, enable memory initialization if needed, and set its **Initialization file** to this generated `firmware.hex`. Use the file path in your checkout; do not leave a path from another machine in the system configuration. Regenerate the Platform Designer system, then compile the Quartus project to produce the SOF/RBF containing the initialized ROM. Copy the resulting `fpga.rbf` to the board's boot partition as described above.
+
+Repeat the build, HEX conversion, Platform Designer regeneration, and Quartus compilation whenever the firmware changes. The generated HEX file is incorporated into the FPGA configuration through the ROM initialization setting; it is not loaded by the Linux program at runtime.
+
 # Project Requirements
 This project requires:
 + `rust via rustup` (armv7-unknown-linux-gnueabihf & riscv32i-unknown-none-elf targets)
