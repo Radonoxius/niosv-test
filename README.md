@@ -20,6 +20,8 @@ cargo build-firmware-debug
 ./firmware2hex.sh
 ```
 
+The first command compiles the Nios V firmware. The second turns the compiled firmware into `firmware.hex` for the ROM.
+
 In Quartus Platform Designer, set the boot core's `nios_rom` initialization file to the generated `firmware.hex`. Regenerate the system, then compile the Quartus project and create the RBF as described above.
 
 # Project Requirements
