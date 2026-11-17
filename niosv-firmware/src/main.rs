@@ -1,11 +1,12 @@
 #![no_main]
 #![no_std]
 
-pub(crate) mod setup;
-
 use core::ptr::{read_volatile, write_volatile};
 
-use niosv_firmware::{LED_CNTL_OUTR, SWITCH_CNTL_INR};
+use crate::consts::{LED_CNTL_OUTR, SWITCH_CNTL_INR};
+
+pub(crate) mod consts;
+mod irqs;
 
 #[riscv_rt::entry]
 fn main() -> ! {

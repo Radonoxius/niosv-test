@@ -1,6 +1,7 @@
 {
   "folders": [
     { "path": "niosv-firmware" },
+    { "path": "niosv-m-rt" },
     { "path": "src" }
   ]
 }

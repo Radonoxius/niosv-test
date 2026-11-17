@@ -1,12 +1,8 @@
 #[allow(unused)]
-use crate::setup::Interrupts;
+use niosv_m_rt::Interrupts;
 
 #[riscv_rt::core_interrupt(Interrupts::MachineTimer)]
-fn machine_timer() {
-    // reload mtimecmp / clear the timer source
-}
+fn machine_timer() {}
 
 #[riscv_rt::core_interrupt(Interrupts::Irq0)]
-fn irq0() {
-
-}
+fn irq0() {}
