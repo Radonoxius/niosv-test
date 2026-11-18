@@ -51,5 +51,5 @@ To work with the FPGA side, youll need to install Quartus Lite 25.1 (keep the de
 The sysroot for the board has been provided in this repo to make things easier
 for development. It was extracted from the Yocto Linux build (nodistro, full-cli image).
 
-Just extract `cortexa9t2hf-neon-sysroot.tar.xz` in /opt. Youre good to
-go after that!
+Just extract `cortexa9t2hf-neon-sysroot.tar.xz` in /opt, on your x86_64 development machine.
+Youre good to go after that!
