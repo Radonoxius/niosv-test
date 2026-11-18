@@ -26,8 +26,9 @@ fpga/c5_pin_model_dump.txt
 fpga/hps_sdram_p0_all_pins.txt
 fpga/hps_sdram_p0_summary.csv
 fpga/*.sof
-fpga/*.hex
+fpga/*.bak
 fpga/*.rbf
 fpga/*.pof
 fpga/*.jic
+*.bin
 *~

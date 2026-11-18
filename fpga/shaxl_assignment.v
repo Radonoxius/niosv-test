@@ -97,7 +97,8 @@ module shaxl_assignment(
 //  REG/WIRE declarations
 //=======================================================
 
-	wire [31:0] reg_out;
+	wire [31:0] main_reg_out;
+	wire [31:0] sub_reg_out;
 
 	system u0 (
 		.clk_clk (CLOCK_50),
@@ -118,13 +119,16 @@ module shaxl_assignment(
       .memory_mem_odt     (HPS_DDR3_ODT),
       .memory_mem_dm      (HPS_DDR3_DM),
       .memory_oct_rzqin   (HPS_DDR3_RZQ),
-		.reg_in_reset (reg_out[0]),
-		.reg_out_in_port (reg_out), 
-      .reg_out_out_port (reg_out), 
+		.sub_rst_in_reset (sub_reg_out[0]),
+		.sub_rst_out_in_port (sub_reg_out), 
+      .sub_rst_out_out_port (sub_reg_out), 
 		.reset_reset_n (1'b1),
-		.switch_controller_0_switches_new_signal (SW)
+		.switch_controller_0_switches_new_signal (SW),
+		.main_rst_in_reset (main_reg_out[0]),
+      .main_rst_out_in_port (main_reg_out),
+      .main_rst_out_out_port (main_reg_out)
 	);
-	 
+        	 
 //=======================================================
 //  Structural coding
 //=======================================================

@@ -1,19 +1,19 @@
 #![no_main]
 #![no_std]
 
-use core::ptr::{read_volatile, write_volatile};
-
-use crate::consts::{LED_CNTL_OUTR, SWITCH_CNTL_INR};
+use niosv_m_rt::{Interrupts, enable_global_interrupt};
 
 pub(crate) mod consts;
 mod irqs;
 
 #[riscv_rt::entry]
 fn main() -> ! {
+    // Enable IRQ0
+    unsafe {
+        enable_global_interrupt(Interrupts::Irq0)
+    };
+
     loop {
-        unsafe {
-            let sw0 = read_volatile(SWITCH_CNTL_INR) & 0x1;
-            write_volatile(LED_CNTL_OUTR, sw0);
-        }
+        core::hint::spin_loop();
     }
 }
