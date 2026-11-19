@@ -1,12 +1,11 @@
 [package]
-name = "niosv-m-rt"
+name = "niosv-shared"
 version = "0.1.0"
 edition = "2024"
 
 [lib]
 test = false
 bench = false
-doctest = false
 
 [dependencies]
 riscv = { version = "0.16.1", features = ["rt-v-trap"] }

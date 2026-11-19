@@ -1,9 +1,12 @@
 #![no_main]
 #![no_std]
 
-use niosv_m_rt::{Interrupts, enable_global_interrupt};
+use niosv_shared::interrupts::enable_global_interrupt;
+use setup::Interrupts;
 
 pub(crate) mod consts;
+pub(crate) mod setup;
+
 mod irqs;
 
 #[riscv_rt::entry]

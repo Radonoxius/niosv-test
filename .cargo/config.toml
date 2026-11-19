@@ -1,11 +1,11 @@
 [alias]
-build-driver = "build --release --target armv7-unknown-linux-gnueabihf"
-build-driver-debug = "build --target armv7-unknown-linux-gnueabihf"
+driver = "build --release --target armv7-unknown-linux-gnueabihf"
+driver-dbg = "build --target armv7-unknown-linux-gnueabihf"
 
-build-firmware = "build --release --package niosv-firmware --target riscv32i-unknown-none-elf"
-build-firmware-debug = "build --package niosv-firmware --target riscv32i-unknown-none-elf"
+firmware-loader = "build --release --package firmware-loader --target armv7-unknown-linux-gnueabihf"
 
-build-firmware-loader = "build --release --package firmware-loader --target armv7-unknown-linux-gnueabihf"
+firmware = "build --release --package niosv-main --package niosv-secondary --target riscv32i-unknown-none-elf"
+firmware-dbg = "build --package niosv-main --package niosv-secondary --target riscv32i-unknown-none-elf"
 
 [target.armv7-unknown-linux-gnueabihf]
 linker = "clang"

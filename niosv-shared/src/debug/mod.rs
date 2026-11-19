@@ -1,8 +1,15 @@
 use core::panic::PanicInfo;
 
+pub mod diagnostics;
+
+use riscv::register::{mcause, mepc, mtval};
+
+use diagnostics::{record_exception, record_panic};
+
 #[panic_handler]
-pub fn panic(panic_info: &PanicInfo) -> ! {
-    crate::diagnostics::record_panic(panic_info);
+fn panic(panic_info: &PanicInfo) -> ! {
+    record_panic(panic_info);
+
     halt()
 }
 
@@ -11,10 +18,11 @@ pub fn panic(panic_info: &PanicInfo) -> ! {
 #[unsafe(no_mangle)]
 #[allow(non_snake_case)]
 fn ExceptionHandler(tf: &riscv_rt::TrapFrame) -> ! {
-    let cause = riscv::register::mcause::read().bits();
-    let tval = riscv::register::mtval::read();
-    let epc = riscv::register::mepc::read();
-    crate::diagnostics::record_exception(cause, tval, epc, tf.ra);
+    let cause = mcause::read().bits();
+    let tval = mtval::read();
+    let epc = mepc::read();
+    record_exception(cause, tval, epc, tf.ra);
+
     halt()
 }
 

@@ -1,7 +1,7 @@
 use core::ptr::{read_volatile, write_volatile};
-use niosv_m_rt::Interrupts;
+use crate::setup::Interrupts;
 
-use crate::consts::{LED_CNTL_OUTR, SWITCH_CNTL_IN_IRQCLRR};
+use niosv_shared::consts::{LED_CNTL_OUTR, SWITCH_CNTL_IN_IRQCLRR};
 
 #[riscv_rt::core_interrupt(Interrupts::Irq0)]
 fn irq0() {

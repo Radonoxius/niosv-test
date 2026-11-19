@@ -17,13 +17,13 @@ Nios-V Core 0 starts running from ROM (its SRAM under the hood actually! :P):
 
 First compile the `firmware-loader` program:
 ```bash
-cargo build-firmware-loader
+cargo firmware-loader
 ```
 Place the executable in `/home` (or anywhere suitable) on the SD card.
 
 After that, compile the firmware:
 ```bash
-cargo build-firmware-debug
+cargo firmware-dbg
 ./firmware2bin.sh
 ```
 The script turns the compiled firmware into `niosv.bin` for the ROM.

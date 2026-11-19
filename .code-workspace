@@ -1,7 +1,8 @@
 {
   "folders": [
-    { "path": "niosv-firmware" },
-    { "path": "niosv-m-rt" },
+    { "path": "niosv-main" },
+    { "path": "niosv-secondary" },
+    { "path": "niosv-shared" },
     { "path": "firmware-loader" },
     { "path": "src" }
   ]

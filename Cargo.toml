@@ -5,7 +5,7 @@ edition = "2024"
 
 [workspace]
 resolver = "3"
-members = ["firmware-loader","niosv-firmware", "niosv-m-rt"]
+members = ["firmware-loader","niosv-main", "niosv-secondary", "niosv-shared"]
 
 [profile.dev]
 opt-level = "s"
